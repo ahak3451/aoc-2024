@@ -1,0 +1,5 @@
+interface AdventDay {
+
+    void run()
+
+}
