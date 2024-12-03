@@ -29,11 +29,9 @@ class Day3 implements AdventDay {
                     break
                 case 'do':
                     enabled = true
-                    println("DEBUG: do was triggered")
                     break
                 case "don't":
                     enabled = false
-                    println("DEBUG: dont was triggered")
                     break
                 default:
                     throw new IllegalStateException("Unknown operand ${parts[0]}")
