@@ -21,9 +21,9 @@ class Day4 implements AdventDay {
             for (int c = 0; c < matrix[0].length; ++c) {
                 if (matrix[r][c] == word.charAt(indexOfPivot)) {
                     if (typeOfCount == 'individual') {
-                        totalOccurances += countThisOccurances(r, c, word)
+                        totalOccurances += countOccurancesForCoord(r, c, word)
                     } else if (typeOfCount == 'crosses') {
-                        totalOccurances += (countThisOccurances(r, c, word, indexOfPivot, CROSS_DIRECTIONS) == 2) ? 1 : 0
+                        totalOccurances += (countOccurancesForCoord(r, c, word, indexOfPivot, CROSS_DIRECTIONS) == 2) ? 1 : 0
                     } else {
                         throw new IllegalStateException("Unknown typeOfCount: ${typeOfCount}")
                     }
@@ -33,7 +33,7 @@ class Day4 implements AdventDay {
         return totalOccurances
     }
 
-    private int countThisOccurances(int row, int col, String word, int indexOfPivot = 0, Direction[] allowedDirections = Direction.values() ) {
+    private int countOccurancesForCoord(int row, int col, String word, int indexOfPivot = 0, Direction[] allowedDirections = Direction.values() ) {
         int occurances = 0
         for (Direction direction in allowedDirections) {
             for (int i = 0; i < word.length(); ++i) {
