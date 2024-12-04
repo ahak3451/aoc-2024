@@ -39,7 +39,7 @@ class Day4 implements AdventDay {
             for (int i = 0; i < word.length(); ++i) {
                 int[] coord = coordAfterSteps(i - indexOfPivot, row, col, direction)
 
-                if (!isWithInMatrix(coord) || matrix[coord[0]][coord[1]] != word.charAt(i)) {
+                if (!isWithinMatrix(coord) || matrix[coord[0]][coord[1]] != word.charAt(i)) {
                     break
                 } else if (i == word.length() - 1) {
                     ++occurances
@@ -53,7 +53,7 @@ class Day4 implements AdventDay {
         return [startRow + direction.stepRow * steps, startCol + direction.stepCol * steps] as int[]
     }
 
-    private boolean isWithInMatrix(int[] coord) {
+    private boolean isWithinMatrix(int[] coord) {
         return !(coord[0] < 0 || coord[0] >= matrix.length || coord[1] < 0 || coord[1] >= matrix[0].length)
     }
 
